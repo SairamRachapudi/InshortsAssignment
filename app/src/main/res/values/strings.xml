@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Inshorts</string>
+    <string name="font_trebuchet">tms</string>
+    <string name="font_awesome">awesome</string>
+    <string name="days_to_go_label">days to go</string>
+    <string name="search_hint">Search Here</string>
+</resources>

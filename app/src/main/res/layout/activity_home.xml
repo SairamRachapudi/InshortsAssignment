@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.sairam.inshortsapp.viewmodel.HomeActivityViewModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/viewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_margin="10dp">
+            <android.support.v7.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:focusable="false"
+                android:paddingLeft="10dp"
+                android:queryHint="Search Here"
+                android:textSize="15sp" />
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardView"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.category}"
+            android:visibility="@{viewModel.categorySelected?View.VISIBLE:View.GONE}"
+            android:textColor="#ef5d8e"
+            android:onClick="@{viewModel.onCategoryClicked}"
+            android:layout_margin="5dp"
+            android:textAllCaps="true"
+            android:drawableRight="@drawable/ic_cancel_black_24dp"
+            android:padding="5dp"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:background="#FFFFFF"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close_bg"/>
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/category"
+            android:layout_marginTop="10dp"
+            bind:items="@{viewModel.itemVms}"
+            bind:layout_vertical="@{true}"
+            bind:view_provider="@{@layout/list_item}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="No Search Results"
+            android:visibility="@{viewModel.emptyNote?View.VISIBLE:View.GONE}" />
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            app:fabSize="normal"
+            android:onClick="onFabClicked"
+            android:src="@drawable/ic_filter_list_black_24dp"
+            android:layout_margin="20dp"
+            app:cardElevation="4dp">
+        </android.support.design.widget.FloatingActionButton>
+    </RelativeLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sairam.inshortsapp.viewmodel.FilterFragmentViewModel"/>
+    </data>
+<RelativeLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:onClick="@{viewModel.onbgClicked}"
+    android:background="#ef5d8e">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:text="Choose a Category"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Business"
+        android:textColor="#ef5d8e"
+        android:onClick="@{viewModel.businessClicked}"
+        android:layout_margin="10dp"
+        android:textAllCaps="true"
+        android:padding="10dp"
+        android:background="#FFFFFF"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="science and technology "
+        android:padding="10dp"
+        android:onClick="@{viewModel.scienceClicked}"
+        android:textAllCaps="true"
+        android:layout_margin="10dp"
+        android:textColor="#ef5d8e"
+        android:background="#FFFFFF"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="entertainment"
+        android:layout_margin="10dp"
+        android:textAllCaps="true"
+        android:onClick="@{viewModel.entrmntClicked}"
+        android:textColor="#ef5d8e"
+        android:padding="10dp"
+        android:background="#FFFFFF"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="health"
+        android:onClick="@{viewModel.healthClicked}"
+        android:textColor="#ef5d8e"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#FFFFFF"/>
+    </LinearLayout>
+</RelativeLayout>
+</layout>

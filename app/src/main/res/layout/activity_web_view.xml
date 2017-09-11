@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sairam.inshortsapp.viewmodel.WebViewViewModel"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageButton
+        android:layout_width="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="45dp"
+        android:tint="@color/white"
+        android:layout_margin="20dp"
+        android:onClick="@{()->viewModel.close()}"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:background="@drawable/close_bg"
+        />
+
+</RelativeLayout>
+</layout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sairam.inshortsapp.viewmodel.NewsArticleViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModel.onItemClicked()}"
+            android:orientation="vertical">
+
+            <com.sairam.inshortsapp.components.AmazeTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@{viewModel.model.title}"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:font="@string/font_trebuchet" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                bind:background="@{viewModel.model.category}">
+
+                <com.sairam.inshortsapp.components.AmazeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    app:font="@string/font_awesome"
+                    bind:text="@{viewModel.model.category}" />
+
+                <com.sairam.inshortsapp.components.AmazeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/white"
+                    android:text="@{viewModel.model.hostname}"
+                    app:font="@string/font_awesome" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
+
+    <!--bind:background="@{viewModel.model.category}">-->
+    <!--bind:cardbackground="@{viewModel.model.category}">-->
